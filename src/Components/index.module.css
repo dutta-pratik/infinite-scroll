@@ -1,0 +1,17 @@
+.userlistBox {
+  width: 380px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.userCardBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.userCardImg {
+  border-radius: 20px;
+}
