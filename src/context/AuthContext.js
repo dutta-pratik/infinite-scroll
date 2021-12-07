@@ -22,7 +22,7 @@ const AuthContextProvider = (props) => {
   const setLogIn = (flag) => dispatch({ type: "setLogIn", payload: flag });
 
   const checkAuth = (username, password) => {
-    if (username === USERNAME && password === PASSWORD) {
+    if (username.trim() === USERNAME && password.trim() === PASSWORD) {
       setLogIn(true);
     }
   };
