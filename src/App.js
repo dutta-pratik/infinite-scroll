@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import UserList from "./Components/UserList";
+import UserList from "./components/UserList";
 
 function App() {
   return (

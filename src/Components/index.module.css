@@ -1,17 +1,49 @@
-.userlistBox {
+.userlistBox,
+.errorBanner {
   width: 380px;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
 }
 
-.userCardBox {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
+.errorBanner {
+  height: 50px;
+  background-color: lightcoral;
+  color: black;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
-.userCardImg {
+.userCardBox,
+.skeletonBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+}
+.skeletonImg {
+  width: 50px;
+  height: 50px;
+}
+.userCardImg,
+.skeletonImg {
   border-radius: 20px;
+}
+
+.skeletonTxt {
+  width: 150px;
+  height: 30px;
+}
+
+.skeletonImg,
+.skeletonTxt {
+  animation: skeleton-animation 1s ease-in infinite alternate;
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: rgb(255, 255, 255);
+  }
+  100% {
+    background-color: rgb(236, 233, 233);
+  }
 }
