@@ -7,6 +7,17 @@
   text-align: center;
 }
 
+.signOutBtn {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 10px;
+  background-color: rgb(245, 245, 245);
+  border: 2px solid lightblue;
+  height: 30px;
+  align-items: center;
+  border-radius: 5px;
+}
+
 .errorBanner {
   height: 50px;
   background-color: lightcoral;

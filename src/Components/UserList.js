@@ -4,7 +4,7 @@ import UserCard from "./UserCard";
 import fetchUserData from "../services/fetchUserData";
 import LoaderSkeleton from "./LoaderSkeleton";
 import { AuthContext } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const UserList = () => {
   const {
@@ -15,6 +15,8 @@ const UserList = () => {
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
+
+  const navigate = useNavigate();
 
   const getUserDetails = async (page) => {
     try {
@@ -44,6 +46,10 @@ const UserList = () => {
     return () => window.removeEventListener("scroll", scrollEvent);
   }, []);
 
+  const signOut = () => {
+    navigate("/");
+  };
+
   if (!loggedIn) {
     return <Navigate replace to="/" />;
   }
@@ -58,7 +64,11 @@ const UserList = () => {
 
   return (
     <div className={styles.userlistBox}>
+      <button className={styles.signOutBtn} onClick={signOut}>
+        Sign Out
+      </button>
       <h1>Users</h1>
+
       {loading ? (
         <LoaderSkeleton />
       ) : (
