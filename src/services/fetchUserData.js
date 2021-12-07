@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchUserData = async ({ page }) => {
   try {
     const respData = await axios.get(
-      `https://randomuser.me/api/?page=${page}&results=15`
+      `https://randomuser.me/api/?page=${page}&results=20`
     );
     const userData = respData.data.results.map((user) => ({
       name: user.name,

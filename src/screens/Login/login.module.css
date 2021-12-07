@@ -1,0 +1,21 @@
+.loginBox {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 15px 0px;
+}
+
+form button {
+  width: fit-content;
+  align-self: center;
+  padding: 5px 10px;
+  background-color: rgb(245, 245, 245);
+  border: 2px solid lightblue;
+}

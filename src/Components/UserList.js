@@ -3,8 +3,14 @@ import styles from "./index.module.css";
 import UserCard from "./UserCard";
 import fetchUserData from "../services/fetchUserData";
 import LoaderSkeleton from "./LoaderSkeleton";
+import { AuthContext } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 const UserList = () => {
+  const {
+    authState: { loggedIn },
+  } = React.useContext(AuthContext);
+
   const [userDetails, setUserDetails] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(true);
@@ -21,10 +27,12 @@ const UserList = () => {
   };
 
   React.useEffect(() => {
-    setTimeout(() => {
-      getUserDetails(page);
-    }, 1000);
-  }, [page]);
+    if (loggedIn) {
+      setTimeout(() => {
+        getUserDetails(page);
+      }, 1000);
+    }
+  }, [page, loggedIn]);
 
   React.useEffect(() => {
     const scrollEvent = window.addEventListener("scroll", () => {
@@ -35,6 +43,10 @@ const UserList = () => {
 
     return () => window.removeEventListener("scroll", scrollEvent);
   }, []);
+
+  if (!loggedIn) {
+    return <Navigate replace to="/" />;
+  }
 
   if (error) {
     return (
