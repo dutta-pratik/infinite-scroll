@@ -63,7 +63,7 @@ const UserList = () => {
   }
 
   return (
-    <div className={styles.userlistBox}>
+    <div className={styles.userlistBox} data-test="userlistBox">
       <button className={styles.signOutBtn} onClick={signOut}>
         Sign Out
       </button>

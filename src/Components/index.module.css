@@ -49,7 +49,7 @@
 
 .skeletonImg,
 .skeletonTxt {
-  animation: skeleton-animation 1s ease-in infinite alternate;
+  animation: skeleton-animation 0.5s ease-in infinite alternate;
 }
 
 @keyframes skeleton-animation {

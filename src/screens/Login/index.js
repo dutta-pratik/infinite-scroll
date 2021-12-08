@@ -6,11 +6,12 @@ import styles from "./login.module.css";
 const LogIn = () => {
   const [username, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const navigate = useNavigate();
   const {
     checkAuth,
     authState: { loggedIn },
   } = React.useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.id === "username") {
@@ -29,7 +30,7 @@ const LogIn = () => {
   }
 
   return (
-    <div className={styles.loginBox}>
+    <div className={styles.loginBox} data-test="login">
       <h1>Log In</h1>
       <form>
         <label htmlFor="username">Username</label>
@@ -38,6 +39,8 @@ const LogIn = () => {
           id="username"
           placeholder="use Foo as username"
           onChange={handleChange}
+          data-test="username-field"
+          value={username}
         ></input>
 
         <label htmlFor="password">Password</label>
@@ -46,9 +49,13 @@ const LogIn = () => {
           id="password"
           placeholder="use Bar as password"
           onChange={handleChange}
+          data-test="password-field"
+          value={password}
         ></input>
 
-        <button onClick={handleSubmit}>LogIn</button>
+        <button data-test="loginBtn" onClick={handleSubmit}>
+          LogIn
+        </button>
       </form>
     </div>
   );
